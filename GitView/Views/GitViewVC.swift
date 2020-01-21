@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class GitViewVC: UIViewController, UITableViewDataSource {
+class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var gitHubRepos: [GitHubRepo] = []
     
@@ -17,7 +17,7 @@ class GitViewVC: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
         
         GitViewAccess().getAllRepos() { json in
             do {
@@ -49,6 +49,10 @@ class GitViewVC: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return gitHubRepos.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
