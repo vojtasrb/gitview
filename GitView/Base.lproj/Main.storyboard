@@ -70,11 +70,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Repositories" id="KGg-E6-mDy">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="vrW-a9-M8S">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bds-SS-TxI">
+                        <barButtonItem key="leftBarButtonItem" id="vrW-a9-M8S">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bds-SS-TxI">
                                 <rect key="frame" x="20" y="5.5" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <state key="normal" title="About "/>
                                 <connections>
                                     <segue destination="pQh-kA-ZrJ" kind="show" identifier="ShowAboutPage" id="xJa-RZ-5sm"/>

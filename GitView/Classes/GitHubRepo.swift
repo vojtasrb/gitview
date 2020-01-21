@@ -16,24 +16,21 @@ struct GitHubRepo: Codable {
     var lastUpdated: String
     
     func getLangColor() -> UIColor {
-        if language == "Ruby" {
+        switch language {
+        case "Ruby":
             return UIColor.red
-        }
-        else if language == "Objective-C" {
+        case "Objective-C":
             return UIColor.blue
-        }
-        else if language == "Go" {
+        case "Go":
             return UIColor.cyan
-        }
-        else if language == "PLpgSQL" {
+        case "PLpgSQL":
             return UIColor.darkGray
-        }
-        else if language == "Arduino" {
+        case "Arduino":
             return UIColor.gray
-        }
-        else if language == "JavaScript" {
+        case "JavaScript":
             return UIColor.brown
+        default:
+            return UIColor.white
         }
-        else { return UIColor.white }
     }
 }

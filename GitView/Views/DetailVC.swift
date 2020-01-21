@@ -14,33 +14,21 @@ class DetailVC: UIViewController, UITableViewDataSource {
     let sections = ["Branches", "Commits"]
     
     var branchName: String = ""
-    var branches: [String] = []
-    var commits: [String] = []
     var completeInfo = [[String]]()
-    
     
     @IBOutlet weak var gitViewDetail: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad() 
-        // Do any additional setup after loading the view.
-                
-        Networking().getRepoInfo(repo: branchName) { branches in
-            do {
-                for (index,subJson):(String, JSON) in branches {
-                    let name = subJson["name"].stringValue
-
-                    self.branches.append(name)
-                }
-                self.completeInfo.append(self.branches)
-            }
-        }
+        // Do any additional setup after loading the view
+        self.completeInfo.removeAll()
         
-        Networking().getCommitsInfo(repo: branchName) { commits in
+        GitViewAccess().getCompleteInfo(repo: branchName) { info in
             do {
-                self.completeInfo.append(commits)
+                self.completeInfo = info
             }
             self.gitViewDetail.reloadData()
+
         }
     }
     
@@ -65,16 +53,10 @@ class DetailVC: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
-      // Depending on the section, fill the textLabel with the relevant text
       
-        guard !branches.isEmpty else {
-            print("empty branches")
-            return cell
-        }
-        print(completeInfo)
-      cell.textLabel?.text = completeInfo[indexPath.section][indexPath.row]
-      // Return the configured cell
-      return cell
+        cell.textLabel?.text = completeInfo[indexPath.section][indexPath.row]
+
+        return cell
 
     }
 }
