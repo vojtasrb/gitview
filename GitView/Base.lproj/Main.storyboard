@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gSQ-xy-RtN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Repositories-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GitViewVC" customModule="GitView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="qz9-AO-eB8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gitViewCell" id="0a9-mL-umh" customClass="gitViewCell" customModule="GitView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0a9-mL-umh" id="VJ1-3Y-TrE">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ad1-Ou-Hrf">
+                                                    <rect key="frame" x="14" y="15" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4q-7U-x3o">
+                                                    <rect key="frame" x="47" y="3" width="282" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g2-Ts-Xsn">
+                                                    <rect key="frame" x="47" y="21" width="282" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gitLastUpdated" destination="0g2-Ts-Xsn" id="Jlq-cF-hp2"/>
+                                            <outlet property="gitRepoLanguage" destination="ad1-Ou-Hrf" id="Uqm-sv-sRO"/>
+                                            <outlet property="gitRepoName" destination="d4q-7U-x3o" id="04R-SQ-bJH"/>
+                                            <segue destination="y9h-Ab-QIE" kind="show" identifier="ShowGitHubRepoDetail" id="HCT-Dy-oTB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="d7o-6f-5xh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WmC-q2-FNP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qz9-AO-eB8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HvN-Fl-4aj"/>
+                            <constraint firstAttribute="bottom" secondItem="qz9-AO-eB8" secondAttribute="bottom" id="MPy-Yx-dSt"/>
+                            <constraint firstItem="qz9-AO-eB8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wVO-Fu-Kku"/>
+                            <constraint firstItem="qz9-AO-eB8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yF1-pu-yJA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Repositories" id="KGg-E6-mDy">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="vrW-a9-M8S">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bds-SS-TxI">
+                                <rect key="frame" x="20" y="5.5" width="92" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="About "/>
+                                <connections>
+                                    <segue destination="pQh-kA-ZrJ" kind="show" identifier="ShowAboutPage" id="xJa-RZ-5sm"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="showAboutPage:" destination="BYZ-38-t0r" id="Gua-aA-xIz"/>
+                            </connections>
+                        </barButtonItem>
+                        <connections>
+                            <outlet property="leftBarButtonItem" destination="vrW-a9-M8S" id="1bK-y4-fuM"/>
+                        </connections>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="gitView" destination="qz9-AO-eB8" id="cMe-bZ-2A6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="126.5625"/>
+        </scene>
+        <!--About GitView-->
+        <scene sceneID="VSF-rt-o6U">
+            <objects>
+                <viewController id="pQh-kA-ZrJ" customClass="AboutPageVC" customModule="GitView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hsw-sw-0pJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GitView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYZ-K5-aOZ">
+                                <rect key="frame" x="166" y="405" width="82" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vojtěch Srb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQI-TD-MEH">
+                                <rect key="frame" x="148" y="442" width="119" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyright © 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzs-Fw-9F6">
+                                <rect key="frame" x="112" y="479" width="191" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="tVv-ip-y22"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About GitView" id="KoZ-yY-39d"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGG-WI-3nL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="882"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="fXy-AF-pok">
+            <objects>
+                <viewController id="y9h-Ab-QIE" customClass="DetailVC" customModule="GitView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lJW-xf-s7K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="9S2-99-9bw">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="17p-ra-rGr">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="17p-ra-rGr" id="Iav-y4-wJg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="y9h-Ab-QIE" id="FJP-tM-EgH"/>
+                                    <outlet property="delegate" destination="y9h-Ab-QIE" id="lfD-tW-9gL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9S2-99-9bw" secondAttribute="bottom" id="8fK-Jb-oAJ"/>
+                            <constraint firstItem="9S2-99-9bw" firstAttribute="top" secondItem="1fu-ZN-Be7" secondAttribute="top" id="JSt-d9-bMX"/>
+                            <constraint firstItem="9S2-99-9bw" firstAttribute="trailing" secondItem="1fu-ZN-Be7" secondAttribute="trailing" id="gJ6-6q-HP0"/>
+                            <constraint firstItem="9S2-99-9bw" firstAttribute="leading" secondItem="1fu-ZN-Be7" secondAttribute="leading" id="yS6-rG-mlv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1fu-ZN-Be7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="786-uB-BPn"/>
+                    <connections>
+                        <outlet property="gitViewDetail" destination="9S2-99-9bw" id="XM6-Zg-dSx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgu-kL-dnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801.449275362319" y="126.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TuZ-N2-PwG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gSQ-xy-RtN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SyR-zD-G78">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xEj-eo-UMf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUG-pc-H6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="circle-icon" width="512" height="512"/>
+    </resources>
+</document>
