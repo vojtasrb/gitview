@@ -34,7 +34,7 @@ class GitViewAccess {
     func getCompleteInfo(repo: String, completionBlock: @escaping ([[String]]) -> Void) {
         
         // get branches
-        AF.request("https://api.github.com/repos/inza/" + repo + "/branches", method: .get).validate().responseJSON { response in
+        AF.request("https://api.github.com/repos/inza/\(repo)/branches", method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -50,7 +50,7 @@ class GitViewAccess {
             }
         }
             // get commits
-            AF.request("https://api.github.com/repos/inza/" + repo + "/commits", method: .get).validate().responseJSON { response in
+            AF.request("https://api.github.com/repos/inza/\(repo)/commits", method: .get).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)

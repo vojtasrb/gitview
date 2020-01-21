@@ -104,29 +104,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GitView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYZ-K5-aOZ">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYZ-K5-aOZ">
                                 <rect key="frame" x="166" y="405" width="82" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vojtěch Srb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQI-TD-MEH">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vojtěch Srb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQI-TD-MEH">
                                 <rect key="frame" x="148" y="442" width="119" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyright © 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzs-Fw-9F6">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzs-Fw-9F6">
                                 <rect key="frame" x="112" y="479" width="191" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VYZ-K5-aOZ" firstAttribute="top" secondItem="tVv-ip-y22" secondAttribute="top" constant="317" id="4xZ-Ue-oG2"/>
+                            <constraint firstItem="tVv-ip-y22" firstAttribute="bottom" secondItem="dzs-Fw-9F6" secondAttribute="bottom" constant="354" id="6Sv-C5-Plw"/>
+                            <constraint firstItem="dQI-TD-MEH" firstAttribute="top" secondItem="VYZ-K5-aOZ" secondAttribute="bottom" constant="8" id="7Hz-UD-8gG"/>
+                            <constraint firstItem="dQI-TD-MEH" firstAttribute="top" secondItem="VYZ-K5-aOZ" secondAttribute="bottom" constant="8" id="CRf-Qi-Lfc"/>
+                            <constraint firstItem="dzs-Fw-9F6" firstAttribute="top" secondItem="dQI-TD-MEH" secondAttribute="bottom" constant="8" id="HNW-9R-Ghv"/>
+                            <constraint firstItem="VYZ-K5-aOZ" firstAttribute="leading" secondItem="tVv-ip-y22" secondAttribute="leading" constant="166" id="PI8-DE-sSq"/>
+                            <constraint firstItem="tVv-ip-y22" firstAttribute="trailing" secondItem="dzs-Fw-9F6" secondAttribute="trailing" constant="111" id="PkU-4M-A4E"/>
+                            <constraint firstItem="dzs-Fw-9F6" firstAttribute="top" secondItem="dQI-TD-MEH" secondAttribute="bottom" constant="8" id="Tmu-vE-daR"/>
+                            <constraint firstItem="dzs-Fw-9F6" firstAttribute="leading" secondItem="tVv-ip-y22" secondAttribute="leading" constant="112" id="nv6-iY-h0X"/>
+                            <constraint firstItem="tVv-ip-y22" firstAttribute="trailing" secondItem="dQI-TD-MEH" secondAttribute="trailing" constant="147" id="qDE-G3-icN"/>
+                            <constraint firstItem="tVv-ip-y22" firstAttribute="trailing" secondItem="VYZ-K5-aOZ" secondAttribute="trailing" constant="166" id="yK6-o0-spt"/>
+                            <constraint firstItem="dQI-TD-MEH" firstAttribute="leading" secondItem="tVv-ip-y22" secondAttribute="leading" constant="148" id="yed-hG-TEQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tVv-ip-y22"/>
                     </view>
                     <navigationItem key="navigationItem" title="About GitView" id="KoZ-yY-39d"/>
