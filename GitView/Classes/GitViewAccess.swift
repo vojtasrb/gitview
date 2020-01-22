@@ -60,9 +60,9 @@ class GitViewAccess {
                         self.commits.append(message)
                     }
                     
-                    // get first 10
-                    let firstTen = Array(self.commits.prefix(10))
-                    self.completeInfo.append(firstTen)
+                    // get last 10
+                    let lastTen = Array(self.commits.prefix(10))
+                    self.completeInfo.append(lastTen)
                     
                     completionBlock(self.completeInfo)
 
