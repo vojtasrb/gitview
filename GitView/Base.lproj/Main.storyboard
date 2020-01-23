@@ -103,7 +103,7 @@
                         </connections>
                     </navigationItem>
                     <connections>
-                        <outlet property="gitUsername" destination="Fu6-rp-7Zt" id="XHt-Hp-08k"/>
+                        <outlet property="gitUsernameField" destination="Fu6-rp-7Zt" id="JhG-TP-pZf"/>
                         <outlet property="gitView" destination="qz9-AO-eB8" id="cMe-bZ-2A6"/>
                     </connections>
                 </viewController>

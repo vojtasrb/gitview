@@ -12,9 +12,10 @@ import SwiftyJSON
 class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     var gitHubRepos: [GitHubRepo] = []
+    var gitUsername: String = ""
     
     @IBOutlet weak var gitView: UITableView!
-    @IBOutlet weak var gitUsername: UITextField!
+    @IBOutlet weak var gitUsernameField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +68,14 @@ class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
       return cell
 
     }
+    
+    // MARK: - TextField - gitUsername
+    
     @IBAction func usernameDidChangeOnExit(_ sender: Any) {
             
-        GitViewAccess().getAllRepos(username: gitUsername.text!) { json in
+        gitUsername = gitUsernameField.text!
+        
+        GitViewAccess().getAllRepos(username: gitUsername) { json in
             do {
                 for (index,subJson):(String, JSON) in json {
                     let newRepo = GitHubRepo(name: subJson["name"].stringValue, language: subJson["language"].stringValue, lastUpdated: subJson["updated_at"].stringValue)
@@ -82,6 +88,7 @@ class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     @IBAction func usernameDidChange(_ sender: Any) {
         
+        gitUsername = ""
         self.gitView.reloadData()
     }
 }
