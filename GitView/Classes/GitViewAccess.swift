@@ -16,9 +16,9 @@ class GitViewAccess {
     var branches:[String] = []
     var completeInfo = [[String]]()
 
-    func getAllRepos(completionBlock: @escaping (JSON) -> Void) {
+    func getAllRepos(username: String, completionBlock: @escaping (JSON) -> Void) {
             
-            AF.request("https://api.github.com/users/inza/repos", method: .get).validate().responseJSON { response in
+            AF.request("https://api.github.com/users/\(username)/repos", method: .get).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)

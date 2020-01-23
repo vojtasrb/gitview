@@ -9,16 +9,18 @@
 import UIKit
 import SwiftyJSON
 
-class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     var gitHubRepos: [GitHubRepo] = []
     
     @IBOutlet weak var gitView: UITableView!
+    @IBOutlet weak var gitUsername: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
         
+        /*
         GitViewAccess().getAllRepos() { json in
             do {
                 for (index,subJson):(String, JSON) in json {                    
@@ -28,6 +30,7 @@ class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 self.gitView.reloadData()
             }
         }
+        */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,6 +66,23 @@ class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell.gitLastUpdated.text = gitHubRepos[indexPath.row].lastUpdated
       return cell
 
+    }
+    @IBAction func usernameDidChangeOnExit(_ sender: Any) {
+            
+        GitViewAccess().getAllRepos(username: gitUsername.text!) { json in
+            do {
+                for (index,subJson):(String, JSON) in json {
+                    let newRepo = GitHubRepo(name: subJson["name"].stringValue, language: subJson["language"].stringValue, lastUpdated: subJson["updated_at"].stringValue)
+                    self.gitHubRepos.append(newRepo)
+                }
+                self.gitView.reloadData()
+            }
+        }
+        
+    }
+    @IBAction func usernameDidChange(_ sender: Any) {
+        
+        self.gitView.reloadData()
     }
 }
 
