@@ -12,7 +12,6 @@ import SwiftyJSON
 class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     var gitHubRepos: [GitHubRepo] = []
-    var gitUsername: String = ""
     
     @IBOutlet weak var gitView: UITableView!
     @IBOutlet weak var gitUsernameField: UITextField!
@@ -40,6 +39,7 @@ class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         let detailVC = segue.destination as! DetailVC
         let myIndexPath = self.gitView.indexPathForSelectedRow!
         let row = myIndexPath.row
+        detailVC.userName = gitUsernameField.text!
         detailVC.branchName = gitHubRepos[row].name
         }
     }
@@ -73,9 +73,9 @@ class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     @IBAction func usernameDidChangeOnExit(_ sender: Any) {
             
-        gitUsername = gitUsernameField.text!
+        gitHubRepos.removeAll()
         
-        GitViewAccess().getAllRepos(username: gitUsername) { json in
+        GitViewAccess().getAllRepos(username: gitUsernameField.text!) { json in
             do {
                 for (index,subJson):(String, JSON) in json {
                     let newRepo = GitHubRepo(name: subJson["name"].stringValue, language: subJson["language"].stringValue, lastUpdated: subJson["updated_at"].stringValue)
@@ -85,11 +85,6 @@ class GitViewVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             }
         }
         
-    }
-    @IBAction func usernameDidChange(_ sender: Any) {
-        
-        gitUsername = ""
-        self.gitView.reloadData()
     }
 }
 

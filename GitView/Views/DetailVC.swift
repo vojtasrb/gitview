@@ -13,6 +13,7 @@ class DetailVC: UIViewController, UITableViewDataSource {
     let sections = ["Branches", "Commits"]
     
     var branchName: String = ""
+    var userName: String = ""
     var completeInfo = [[String]]()
     
     @IBOutlet weak var gitViewDetail: UITableView!
@@ -22,7 +23,7 @@ class DetailVC: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view
         self.completeInfo.removeAll()
         
-        GitViewAccess().getCompleteInfo(repo: branchName) { info in
+        GitViewAccess().getCompleteInfo(username: userName, repo: branchName) { info in
             do {
                 self.completeInfo = info
             }
